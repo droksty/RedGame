@@ -4,61 +4,72 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] Transform playerCamera;
-    [SerializeField] float mouseSensitivity = 3.0f;
-    [SerializeField] float walkSpeed = 10.0f;
-    [SerializeField] float gravity = -10.0f;
+    public Transform playerCamera;
+    public float mouseSensitivity = 3.0f;
+    private float cameraPitch = 0.0f;
+    private float maxPitchAngle = 90.0f;
 
-    [SerializeField] bool lockCursor = true;
+    public CharacterController controller;
+    public float walkSpeed = 3.0f;
+    public float runSpeed = 16.0f;
 
-    float cameraPitch = 0.0f;
-    float velocityY = 0.0f;
-    CharacterController controller;
+
+    Vector3 gravity;
+    float gravityForce = 9.81f;
+    float jumpForce = 5.0f;
 
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
-        if(lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 
     void Update()
     {
-        UpdateMouseLook();
+        MouseLook();
+        Debug.Log(gravity.y);
+    }
+
+    void FixedUpdate()
+    {
         UpdateMovement();
     }
 
-
-    void UpdateMouseLook()
+    void MouseLook()
     {
-        Vector2 mouseDela = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-        cameraPitch -= mouseDela.y * mouseSensitivity;
-        cameraPitch = Mathf.Clamp(cameraPitch, -90.0f, 90.0f);
+        cameraPitch -= mouseDelta.y * mouseSensitivity;
+        cameraPitch = Mathf.Clamp(cameraPitch, -maxPitchAngle, maxPitchAngle);
 
         playerCamera.localEulerAngles = Vector3.right * cameraPitch;
-
-        transform.Rotate(Vector3.up * mouseDela.x * mouseSensitivity);
+        transform.Rotate(Vector3.up * mouseDelta.x * mouseSensitivity);
+        
     }
 
 
     void UpdateMovement()
     {
+        if (controller.isGrounded) {
+            gravity.y = 0f;
+            if (Input.GetKey(KeyCode.Space)) {
+                gravity.y += jumpForce;
+            }
+        } else if (!controller.isGrounded) {
+            gravity.y -= gravityForce * Time.deltaTime;
+        }
+
+
         Vector2 inputDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         inputDirection.Normalize();
 
-        if(controller.isGrounded)
-            velocityY = 0.0f;
-
-        velocityY += gravity * Time.deltaTime;
-
-        Vector3 velocity = (transform.forward * inputDirection.y + transform.right * inputDirection.x) * walkSpeed + Vector3.up * velocityY;
+        Vector3 velocity = (Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed) * (transform.forward * inputDirection.y + transform.right * inputDirection.x);
 
         controller.Move(velocity * Time.deltaTime);
+
+        controller.Move(gravity * Time.deltaTime);
     }
+    
 }
