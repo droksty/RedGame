@@ -1,2 +1,14 @@
-/samples/
-/polytope studio/
+# Ignored Files in Assets Folder
+
+/Polytope Studio.meta
+/Samples.meta
+/UniversalRenderPipelineAsset.asset
+/UniversalRenderPipelineAsset.asset.meta
+/UniversalRenderPipelineAsset_Renderer.asset
+/UniversalRenderPipelineAsset_Renderer.asset.meta
+
+
+# Ignored Directories in Assets Folder
+
+Polytope Studio/
+Samples/
