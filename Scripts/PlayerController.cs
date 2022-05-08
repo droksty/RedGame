@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         MouseLook();
-        Debug.Log(gravity.y);
+        // Debug.Log(gravity.y);
     }
 
     void FixedUpdate()
