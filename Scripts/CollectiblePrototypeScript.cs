@@ -15,10 +15,10 @@ public class CollectiblePrototypeScript : MonoBehaviour
     }
 
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other) // Έλεγχος για Α. collectible B. Artifact C. Exit
     {
-        if (other.name == "Player")  // Όταν ο παίκτης αγγίξει το object
-        {
+        if (gameObject.tag == "Collectible" && other.name == "Player") { // collectible
+        
             Debug.Log(gameObject.name + " picked up by " + other.name);
 
             // reserved for κώδικα που έχει σχέση με το GAME OVER MECHANIC
@@ -29,8 +29,24 @@ public class CollectiblePrototypeScript : MonoBehaviour
             gameManager.timeLeft += timeBoost;
 
             //reserved for κώδικα που έχει σχέση με το GAME OVER MECHANIC
-            
+                    
+            Destroy(gameObject);
+
+        }
+        else if (gameObject.tag == "Artifact" && other.name == "Player") { // artifacts
+        
+            Debug.Log(gameObject.name + " picked up by " + other.name);
+
+            // reserved for κώδικα που έχει σχέση με Level Advancement
             Destroy(gameObject);
         }
+        else if (gameObject.tag == "Exit" && other.name == "Player") { // exit
+            
+            Debug.Log("Level Complete, go to next Level");
+            
+            // reserved for κώδικα που έχει σχέση με Level Advancement
+        }
     }
+        
+
 }
