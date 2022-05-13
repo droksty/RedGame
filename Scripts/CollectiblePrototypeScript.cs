@@ -19,14 +19,15 @@ public class CollectiblePrototypeScript : MonoBehaviour
     {
         if (gameObject.tag == "Collectible" && other.name == "Player") { // collectible
         
-            Debug.Log(gameObject.name + " picked up by " + other.name);
+            // Debug.Log(gameObject.name + " picked up by " + other.name);
 
             // reserved for κώδικα που έχει σχέση με το GAME OVER MECHANIC
 
             gameManager.collectibleCounter += 1;
-            Debug.Log(gameManager.collectibleCounter);
+            // Debug.Log(gameManager.collectibleCounter);
+            gameManager.collectiblesCollected.text = gameManager.collectibleCounter.ToString();
 
-            gameManager.timeLeft += timeBoost;
+            gameManager.timer += timeBoost;
 
             //reserved for κώδικα που έχει σχέση με το GAME OVER MECHANIC
                     
@@ -35,7 +36,9 @@ public class CollectiblePrototypeScript : MonoBehaviour
         }
         else if (gameObject.tag == "Artifact" && other.name == "Player") { // artifacts
         
-            Debug.Log(gameObject.name + " picked up by " + other.name);
+            // Debug.Log(gameObject.name + " picked up by " + other.name);
+            gameManager.artifactCounter += 1;
+            gameManager.artifactsCollected.text = gameManager.artifactCounter.ToString();
 
             // reserved for κώδικα που έχει σχέση με Level Advancement
             Destroy(gameObject);
