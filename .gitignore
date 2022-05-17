@@ -7,6 +7,7 @@
 /UniversalRenderPipelineAsset_Renderer.asset
 /UniversalRenderPipelineAsset_Renderer.asset.meta
 /TextMesh Pro.meta
+/Prefabs/Rejected.meta
 
 
 # Ignored Directories in Assets Folder
@@ -14,3 +15,4 @@
 Polytope Studio/
 Samples/
 TextMesh Pro/
+Prefabs/Rejected/
