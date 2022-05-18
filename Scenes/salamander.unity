@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5235276, g: 0.5736787, b: 0.6197201, a: 1}
+  m_IndirectSpecularColor: {r: 0.8753122, g: 1.0412049, b: 1.1847347, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -144,6 +144,10 @@ PrefabInstance:
     - target: {fileID: 2846492296329883249, guid: 961213c2eaad9b04e8f389317d404128, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846492296329883249, guid: 961213c2eaad9b04e8f389317d404128, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2846492296329883250, guid: 961213c2eaad9b04e8f389317d404128, type: 3}
       propertyPath: m_RootOrder
@@ -456,6 +460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6434123519039343421, guid: 2baded286ce6985439fe09268673d503, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2baded286ce6985439fe09268673d503, type: 3}
 --- !u!114 &1083031145 stripped
@@ -524,6 +532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArtifactPrototype
       objectReference: {fileID: 0}
+    - target: {fileID: 6473159755093326619, guid: f2ad0cbbfb388ed47b5dc8315d059e66, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2ad0cbbfb388ed47b5dc8315d059e66, type: 3}
 --- !u!114 &1638306138 stripped
@@ -566,7 +578,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.82
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -684,6 +696,10 @@ PrefabInstance:
     - target: {fileID: 6473159755093326619, guid: 3fd3dde1938a8224d91415e7e5010f88, type: 3}
       propertyPath: m_Name
       value: CollectiblePrototype
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473159755093326619, guid: 3fd3dde1938a8224d91415e7e5010f88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fd3dde1938a8224d91415e7e5010f88, type: 3}
