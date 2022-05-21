@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using TMPro; ///
+using UnityEngine.SceneManagement; ///
 
 public class GameManager : MonoBehaviour
 {
@@ -33,4 +34,6 @@ public class GameManager : MonoBehaviour
             gameOver.gameObject.SetActive(true);
         }
     }
+
+
 }
