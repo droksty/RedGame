@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 0fbeb250f43df584095fb2db15be74fb
+guid: c35994dde5cb791438023bb92fd142ae
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leaf.001
+    second: {fileID: 2100000, guid: 5902f89048d883c4ca84eece77614036, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trunk
+    second: {fileID: 2100000, guid: b7a859cf6a506ea44a6f9e8895361b9a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -33,7 +43,10 @@ ModelImporter:
     clipAnimations: []
     isReadable: 0
   meshes:
-    lODScreenPercentages: []
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.01
     globalScale: 1
     meshCompression: 0
     addColliders: 0
