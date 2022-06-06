@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     public void PlayGame() // 
     {
-        SceneManager.LoadScene("drokstyLevel2");
+        SceneManager.LoadScene("Level2");
     }
 
 
