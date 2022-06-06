@@ -15,8 +15,8 @@ public class PlayerController : MonoBehaviour
 
 
     Vector3 gravity;
-    float gravityForce = 9.81f;
-    float jumpForce = 5.0f;
+    float gravityForce = 11.0f;
+    float jumpForce = 4.5f;
 
 
     void Start()
@@ -30,12 +30,13 @@ public class PlayerController : MonoBehaviour
     {
         MouseLook();
         // Debug.Log(gravity.y);
-    }
-
-    void FixedUpdate()
-    {
         UpdateMovement();
     }
+
+    // void FixedUpdate()
+    // {
+    //     UpdateMovement();
+    // }
 
     void MouseLook()
     {

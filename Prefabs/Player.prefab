@@ -163,7 +163,7 @@ MonoBehaviour:
   playerCamera: {fileID: 4792614541413482048}
   mouseSensitivity: 3
   controller: {fileID: 4792614541385505612}
-  walkSpeed: 3
+  walkSpeed: 6
   runSpeed: 16
 --- !u!1 &4792614541413482049
 GameObject:
