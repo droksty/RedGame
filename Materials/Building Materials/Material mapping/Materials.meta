@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Materials/Building Materials/Material mapping/Materials.meta
 guid: 6b2ddce290739424481a32c7e808574f
+=======
+guid: 838c30b5937385b418d431ac048084b6
+>>>>>>> Stashed changes:Assets/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
