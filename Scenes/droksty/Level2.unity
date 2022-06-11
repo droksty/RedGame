@@ -1337,7 +1337,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1095693611788628435, guid: 596f903e86ab3f849ad9b0372f123a4f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1095693611788628435, guid: 596f903e86ab3f849ad9b0372f123a4f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1457,13 +1457,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4792614541385505614, guid: 252976a44b94e6f43976ea6dcaff23b7, type: 3}
-      propertyPath: runSpeed
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 4792614541385505615, guid: 252976a44b94e6f43976ea6dcaff23b7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4792614541385505615, guid: 252976a44b94e6f43976ea6dcaff23b7, type: 3}
       propertyPath: m_LocalPosition.x
