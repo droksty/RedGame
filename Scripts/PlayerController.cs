@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.Space)) {
                 gravity.y += jumpForce;
             }
-        } else if (!controller.isGrounded) {
+        } else {
             gravity.y -= gravityForce * Time.deltaTime;
         }
 
