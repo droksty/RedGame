@@ -106,10 +106,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4330750311329757141}
   - component: {fileID: 4330750311329757142}
-  - component: {fileID: 9122925044844821678}
   - component: {fileID: 4330750311329757136}
   - component: {fileID: 4330750311329757137}
   - component: {fileID: 4330750311329757138}
+  - component: {fileID: 4928407619834360756}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -152,23 +152,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &9122925044844821678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4330750311329757143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b7f37536c5cbc84aa180dccade60182, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 4330750311356240602}
-  mouseSensitivity: 3
-  controller: {fileID: 4330750311329757142}
-  walkSpeed: 8
-  runSpeed: 16
 --- !u!114 &4330750311329757136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +288,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4928407619834360756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330750311329757143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d720ed60ef3b34d9091b6897699b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 4330750311356240602}
+  mouseSensitivity: 3
+  controller: {fileID: 4330750311329757142}
+  walkSpeed: 8
+  runSpeed: 16
 --- !u!1 &4330750311356240603
 GameObject:
   m_ObjectHideFlags: 0
