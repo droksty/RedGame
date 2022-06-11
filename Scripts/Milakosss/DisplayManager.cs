@@ -5,9 +5,12 @@ using TMPro;
 
 public class DisplayManager : MonoBehaviour
 {
+    AudioSource audio;
+
     ManageScenes scenes;
-    public float timer; // Χρόνος που απομένει για Game Over
+    public float timer = 180; // Χρόνος που απομένει για Game Over
     public bool timerIsRunning = false;
+    public bool SuspenceSoundTimerBool;
 
     PauseMode pause;
 
@@ -16,13 +19,14 @@ public class DisplayManager : MonoBehaviour
     private void Awake() 
     {
         pause = FindObjectOfType<PauseMode>();
-        scenes = FindObjectOfType<ManageScenes>();  
+        scenes = FindObjectOfType<ManageScenes>();
+        audio = GetComponent<AudioSource>();  
     }
     private void Start() 
     {
         timerIsRunning = true;
     }
-    void Update()
+    public void Update()
     {
         if (pause.isPaused == true)
         {
@@ -38,13 +42,20 @@ public class DisplayManager : MonoBehaviour
 
                 timer -= Time.deltaTime;
                 CadranCounters[2].text = timer.ToString("#.0");
+                
             }
             else 
             {
                 CadranCounters[2].text = 0.ToString();
                 CadranCounters[3].gameObject.SetActive(true);
+
             }
             DisplayTime(timer);
+        }
+        if(timer <= 60)
+        {
+            print("Click Clack");
+            audio.Play();
         }      
     }
 

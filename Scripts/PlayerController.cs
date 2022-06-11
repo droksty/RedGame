@@ -5,38 +5,43 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Transform playerCamera;
+    PauseMode pause;
     public float mouseSensitivity = 3.0f;
     private float cameraPitch = 0.0f;
     private float maxPitchAngle = 90.0f;
 
     public CharacterController controller;
-    public float walkSpeed = 3.0f;
+    public float walkSpeed = 8.0f;
     public float runSpeed = 16.0f;
 
 
     Vector3 gravity;
-    float gravityForce = 11.0f;
-    float jumpForce = 4.5f;
+    float gravityForce = 9.81f;
+    float jumpForce = 5.0f;
 
-
-    void Start()
+    private void Awake() 
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        pause = FindObjectOfType<PauseMode>();    
     }
-
 
     void Update()
     {
-        MouseLook();
+        if(pause.isPaused == false)
+        {
+            MouseLook();
+        }
+        
         // Debug.Log(gravity.y);
-        UpdateMovement();
     }
 
-    // void FixedUpdate()
-    // {
-    //     UpdateMovement();
-    // }
+    void FixedUpdate()
+    {
+        if(pause.isPaused == false)
+        {
+            UpdateMovement();
+        }
+        
+    }
 
     void MouseLook()
     {
@@ -53,12 +58,16 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMovement()
     {
-        if (controller.isGrounded) {
+        if (controller.isGrounded) 
+        {
             gravity.y = 0f;
-            if (Input.GetKey(KeyCode.Space)) {
+            if (Input.GetKey(KeyCode.Space)) 
+            {
                 gravity.y += jumpForce;
             }
-        } else {
+        }   
+        else if (!controller.isGrounded) 
+        {
             gravity.y -= gravityForce * Time.deltaTime;
         }
 

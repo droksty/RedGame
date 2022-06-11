@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PauseMode : MonoBehaviour
 {
+    
     public bool isPaused;
 
     public void BoolCheck()
