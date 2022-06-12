@@ -1,20 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class CheckCollision : MonoBehaviour
 {
+    AudioSource audio;
+    public AudioClip[] clip;
+    DissolveObjectEffect disolve;
+
     [SerializeField] private float timeBoost = 25f; // Το boost σε timeLeft που κερδίζει ο παίκτης όταν μαζέψει ένα collectible
     [HideInInspector] public int collectibleCounter; // Το σύνολο των collectible που έχει μαζέψει ο παίκτης
     [HideInInspector] public int artifactCounter; // Το σύνολο των artifact που έχει μαζέψει ο παίκτης
 
-    void OnTriggerEnter(Collider other) // Έλεγχος για Α. collectible B. Artifact C. Exit
+    private void Awake() 
+    {
+        disolve = FindObjectOfType<DissolveObjectEffect>();
+        audio = GetComponent<AudioSource>();
+    }
+
+
+    public void OnTriggerEnter(Collider other) // Έλεγχος για Α. collectible B. Artifact C. Exit
     {
        DisplayManager displayManager = FindObjectOfType<DisplayManager>();
 
         if (gameObject.tag == "Player" && other.tag == "Collectable") 
         { // collectable
-        
+            audio.PlayOneShot(clip[1], 0.7f);
             // Debug.Log(gameObject.name + " picked up by " + other.name);
 
             // reserved for κώδικα που έχει σχέση με το GAME OVER MECHANIC
@@ -28,11 +40,10 @@ public class CheckCollision : MonoBehaviour
             //reserved for κώδικα που έχει σχέση με το GAME OVER MECHANIC
             print("collect");
             Destroy(other.gameObject);
-
         }
         else if (gameObject.tag == "Player" && other.tag == "Artifact") 
         { // artifacts
-        
+            audio.PlayOneShot(clip[0], 0.7f);
             // Debug.Log(gameObject.name + " picked up by " + other.name);
             artifactCounter += 1;
             displayManager.CadranCounters[1].text = artifactCounter.ToString();
@@ -40,6 +51,7 @@ public class CheckCollision : MonoBehaviour
             // reserved for κώδικα που έχει σχέση με Level Advancement
             Destroy(other.gameObject);
             print("Artifact");
+          
         }
         else if (gameObject.tag == "Player" && other.tag == "Exit") 
         { // exit

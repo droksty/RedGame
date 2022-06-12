@@ -7,12 +7,14 @@ public class PauseWithESC : MonoBehaviour
 {
     PauseMode pause;
     public GameObject btn;
+    // public GameObject img;
     public bool escPauseCheck;
 
     public  void Start() 
     {
         escPauseCheck = false;
         pause = FindObjectOfType<PauseMode>();
+
     }
     // Update is called once per frame
     void Update()
@@ -22,7 +24,9 @@ public class PauseWithESC : MonoBehaviour
             escPauseCheck = true;
             pause.BoolCheck();
             btn.SetActive(true);
+            // img.SetActive(true);
             escPauseCheck = false;
+
         }
     }
 }
