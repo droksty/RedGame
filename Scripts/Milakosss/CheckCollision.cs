@@ -27,7 +27,7 @@ public class CheckCollision : MonoBehaviour
         if (gameObject.tag == "Player" && other.tag == "Collectable") 
         { // collectable
             audio.PlayOneShot(clip[1], 0.7f);
-            // Debug.Log(gameObject.name + " picked up by " + other.name);
+            //Debug.Log(gameObject.name + " picked up by " + other.name);
 
             // reserved for κώδικα που έχει σχέση με το GAME OVER MECHANIC
 
