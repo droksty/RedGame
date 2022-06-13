@@ -54,8 +54,8 @@ public class DisplayManager : MonoBehaviour
         }
         if(timer <= 60)
         {
-            print("Click Clack");
-            audio.Play();
+            // print("Click Clack");
+            // audio.Play();
         }      
     }
 

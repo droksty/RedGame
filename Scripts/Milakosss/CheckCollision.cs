@@ -8,6 +8,11 @@ public class CheckCollision : MonoBehaviour
     AudioSource audio;
     public AudioClip[] clip;
     DissolveObjectEffect disolve;
+    
+    [Range(0, 1)]
+    public float artifactVolume = 0.7f;
+    [Range(0, 1)]
+    public float collectableVolume = 0.7f;
 
     [SerializeField] private float timeBoost = 25f; // Το boost σε timeLeft που κερδίζει ο παίκτης όταν μαζέψει ένα collectible
     [HideInInspector] public int collectibleCounter; // Το σύνολο των collectible που έχει μαζέψει ο παίκτης
@@ -17,6 +22,7 @@ public class CheckCollision : MonoBehaviour
     {
         disolve = FindObjectOfType<DissolveObjectEffect>();
         audio = GetComponent<AudioSource>();
+        
     }
 
 
@@ -26,7 +32,7 @@ public class CheckCollision : MonoBehaviour
 
         if (gameObject.tag == "Player" && other.tag == "Collectable") 
         { // collectable
-            audio.PlayOneShot(clip[1], 0.7f);
+            audio.PlayOneShot(clip[1], collectableVolume);
             //Debug.Log(gameObject.name + " picked up by " + other.name);
 
             // reserved for κώδικα που έχει σχέση με το GAME OVER MECHANIC
@@ -43,7 +49,7 @@ public class CheckCollision : MonoBehaviour
         }
         else if (gameObject.tag == "Player" && other.tag == "Artifact") 
         { // artifacts
-            audio.PlayOneShot(clip[0], 0.7f);
+            audio.PlayOneShot(clip[0], artifactVolume);
             // Debug.Log(gameObject.name + " picked up by " + other.name);
             artifactCounter += 1;
             displayManager.CadranCounters[1].text = artifactCounter.ToString();
