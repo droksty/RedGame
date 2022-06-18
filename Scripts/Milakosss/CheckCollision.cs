@@ -30,7 +30,7 @@ public class CheckCollision : MonoBehaviour
     {
        DisplayManager displayManager = FindObjectOfType<DisplayManager>();
 
-        if (gameObject.tag == "Player" && other.tag == "Collectable") 
+        if (other.tag == "Collectable") 
         { // collectable
             audio.PlayOneShot(clip[1], collectableVolume);
             //Debug.Log(gameObject.name + " picked up by " + other.name);
@@ -47,7 +47,7 @@ public class CheckCollision : MonoBehaviour
             print("collect");
             Destroy(other.gameObject);
         }
-        else if (gameObject.tag == "Player" && other.tag == "Artifact") 
+        else if (other.tag == "Artifact") 
         { // artifacts
             audio.PlayOneShot(clip[0], artifactVolume);
             // Debug.Log(gameObject.name + " picked up by " + other.name);
@@ -59,7 +59,7 @@ public class CheckCollision : MonoBehaviour
             print("Artifact");
           
         }
-        else if (gameObject.tag == "Player" && other.tag == "Exit") 
+        else if (other.tag == "Exit") 
         { // exit
             
             ManageScenes sceneManager = FindObjectOfType<ManageScenes>();
