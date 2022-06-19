@@ -18,6 +18,9 @@ public class CheckCollision : MonoBehaviour
     [HideInInspector] public int collectibleCounter; // Το σύνολο των collectible που έχει μαζέψει ο παίκτης
     [HideInInspector] public int artifactCounter; // Το σύνολο των artifact που έχει μαζέψει ο παίκτης
 
+    GameObject door;
+    GameObject chest;
+
     private void Awake() 
     {
         disolve = FindObjectOfType<DissolveObjectEffect>();
@@ -59,6 +62,25 @@ public class CheckCollision : MonoBehaviour
             print("Artifact");
           
         }
+        else if (other.tag == "Door")
+        {
+            if (artifactCounter == 7)
+            {
+                //trigger door animation
+                door = GameObject.FindWithTag("Door");
+                door.GetComponent<Animator>().Play("DoorOpen");
+            }
+            else
+            {
+                //displayManager.DisplayMessage("The door is locked, you need all 7 artifacts to unlock it.");
+                Debug.Log("Door is locked");
+            }
+        }
+        else if (other.tag == "Chest")
+        {
+            chest = GameObject.FindWithTag("Chest");
+            chest.GetComponentInChildren<Animator>().Play("ChestOpen");
+        }
         else if (other.tag == "Exit") 
         { // exit
             
@@ -70,6 +92,4 @@ public class CheckCollision : MonoBehaviour
             // reserved for κώδικα που έχει σχέση με Level Advancement
         }
     }
-        
-
 }

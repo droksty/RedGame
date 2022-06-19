@@ -14,7 +14,7 @@ public class DisplayManager : MonoBehaviour
 
     PauseMode pause;
 
-    public TextMeshProUGUI[] CadranCounters; 
+    public TextMeshProUGUI[] CadranCounters;
 
     private void Awake() 
     {
@@ -64,5 +64,10 @@ public class DisplayManager : MonoBehaviour
         float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         CadranCounters[2].text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    void DisplayMessage(string msg)
+    {
+        // show msg
     }   
 }
