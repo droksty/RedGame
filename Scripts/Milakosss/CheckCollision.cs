@@ -20,12 +20,12 @@ public class CheckCollision : MonoBehaviour
 
     GameObject door;
     GameObject chest;
+    public bool isChestOpen;
 
     private void Awake() 
     {
         disolve = FindObjectOfType<DissolveObjectEffect>();
         audio = GetComponent<AudioSource>();
-        
     }
 
 
@@ -64,7 +64,7 @@ public class CheckCollision : MonoBehaviour
         }
         else if (other.tag == "Door")
         {
-            if (artifactCounter == 7)
+            if (artifactCounter == 1)
             {
                 //trigger door animation
                 door = GameObject.FindWithTag("Door");
@@ -80,6 +80,8 @@ public class CheckCollision : MonoBehaviour
         {
             chest = GameObject.FindWithTag("Chest");
             chest.GetComponentInChildren<Animator>().Play("ChestOpen");
+            chest.GetComponent<BoxCollider>().enabled = false;
+            isChestOpen = true;
         }
         else if (other.tag == "Exit") 
         { // exit
