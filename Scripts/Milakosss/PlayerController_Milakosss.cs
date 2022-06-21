@@ -6,6 +6,7 @@ public class PlayerController_Milakosss : MonoBehaviour
 {
     public Transform playerCamera;
     PauseMode pause;
+    DisplayManager displayManager;
     public float mouseSensitivity = 3.0f;
     private float cameraPitch = 0.0f;
     private float maxPitchAngle = 90.0f;
@@ -21,12 +22,13 @@ public class PlayerController_Milakosss : MonoBehaviour
 
     private void Awake() 
     {
-        pause = FindObjectOfType<PauseMode>();    
+        pause = FindObjectOfType<PauseMode>();
+        displayManager = FindObjectOfType<DisplayManager>();    
     }
 
     void Update()
     {
-        if(pause.isPaused == false)
+        if(pause.isPaused == false && displayManager.gameOver == false)
         {
             MouseLook();
         }
@@ -36,7 +38,7 @@ public class PlayerController_Milakosss : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(pause.isPaused == false)
+        if(pause.isPaused == false && displayManager.gameOver == false)
         {
             UpdateMovement();
         }

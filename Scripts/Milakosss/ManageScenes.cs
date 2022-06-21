@@ -12,6 +12,8 @@ public class ManageScenes : MonoBehaviour
     public int lastScene;
     private int newGame = 1;
     public bool NewGame;
+
+    public float time = 2;
     
 
 # region Scenes
@@ -22,6 +24,7 @@ public class ManageScenes : MonoBehaviour
         currentScene = scene.buildIndex;
         print("last scene is " + currentScene);
     }
+
     public void NewGameScene()
     {
         SceneManager.LoadSceneAsync(newGame);
@@ -30,12 +33,29 @@ public class ManageScenes : MonoBehaviour
     }
     public void LoadNextScene(int sceneIndex)
     {
-        // nextScene = currentScene + 1;
-        SceneManager.LoadSceneAsync(nextScene);
+        StartCoroutine(WaitUntilLoad(time, nextScene));
+        // nextScene = currentScene + 1;  
     }
     public void OnApplicationQuit() 
     {
         Application.Quit();    
+    }
+
+    IEnumerator WaitUntilLoad(float time, int nextScene)
+    {
+        Fader fader = FindObjectOfType<Fader>();
+
+        yield return fader.FadeOut(time);
+
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadSceneAsync(nextScene);
+
+
+    }
+
+    public void GameOverReloadScene()
+    {
+        SceneManager.LoadSceneAsync(currentScene);
     }
 
     // public void LoadScene(int sceneIndex)
