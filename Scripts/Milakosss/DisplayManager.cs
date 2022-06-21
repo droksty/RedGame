@@ -11,7 +11,7 @@ public class DisplayManager : MonoBehaviour
     public float timer = 180; // Χρόνος που απομένει για Game Over
     public bool timerIsRunning = false;
     public bool SuspenceSoundTimerBool;
-
+    public bool gameOver;
     PauseMode pause;
 
     public TextMeshProUGUI[] CadranCounters;
@@ -24,6 +24,7 @@ public class DisplayManager : MonoBehaviour
     }
     private void Start() 
     {
+        gameOver = false;
         timerIsRunning = true;
     }
     public void Update()
@@ -46,9 +47,15 @@ public class DisplayManager : MonoBehaviour
             }
             else 
             {
-                CadranCounters[2].text = 0.ToString();
-                CadranCounters[3].gameObject.SetActive(true);
-
+                for (int i = 0; i < CadranCounters.Length - 1; i++)
+                {
+                    CadranCounters[i].gameObject.SetActive(false);
+                }
+                
+                UIController.ShowUI("GameOver");
+                gameOver = true;
+                StartCoroutine(GameOverWait(1));
+                ;
             }
             DisplayTime(timer);
         }
@@ -66,8 +73,9 @@ public class DisplayManager : MonoBehaviour
         CadranCounters[2].text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    void DisplayMessage(string msg)
+    IEnumerator GameOverWait(float time)
     {
-        // show msg
-    }   
+        yield return new WaitForSeconds(time);
+        scenes.GameOverReloadScene();
+    }
 }

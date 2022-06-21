@@ -17,7 +17,7 @@ public class UIController : Singelton<UIController>
         base.Awake();
         ResetAllUI();    
     }
-    void ResetAllUI()
+    public void ResetAllUI()
     {
         foreach (CanvasGroup panel in uiPanels.Values)
         {
@@ -42,7 +42,7 @@ public class UIController : Singelton<UIController>
         }
     }
 
-    void ChangeUI(CanvasGroup panel)
+    public void ChangeUI(CanvasGroup panel)
     {
         if (panel == currentPanel)
             return;

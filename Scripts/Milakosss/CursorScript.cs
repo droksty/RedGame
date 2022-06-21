@@ -20,6 +20,7 @@ public class CursorScript : MonoBehaviour
     {
         Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = cursorPos;
+        cursorPos = transform.forward;
           
     }
 }

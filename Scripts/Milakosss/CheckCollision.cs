@@ -14,18 +14,24 @@ public class CheckCollision : MonoBehaviour
     [Range(0, 1)]
     public float collectableVolume = 0.7f;
 
+    public int artifactsInstances = 7;
+
+    public bool exitOpen;
     [SerializeField] private float timeBoost = 25f; // Το boost σε timeLeft που κερδίζει ο παίκτης όταν μαζέψει ένα collectible
     [HideInInspector] public int collectibleCounter; // Το σύνολο των collectible που έχει μαζέψει ο παίκτης
     [HideInInspector] public int artifactCounter; // Το σύνολο των artifact που έχει μαζέψει ο παίκτης
 
     GameObject door;
     GameObject chest;
+
+    public GameObject cube;
     public bool isChestOpen;
 
     private void Awake() 
     {
         disolve = FindObjectOfType<DissolveObjectEffect>();
         audio = GetComponent<AudioSource>();
+        exitOpen = false;
     }
 
 
@@ -60,20 +66,18 @@ public class CheckCollision : MonoBehaviour
             // reserved for κώδικα που έχει σχέση με Level Advancement
             Destroy(other.gameObject);
             print("Artifact");
-          
+            if (artifactCounter == artifactsInstances)
+            {
+                exitOpen = true;
+            }
         }
         else if (other.tag == "Door")
         {
-            if (artifactCounter == 1)
+            if (artifactCounter == artifactsInstances)
             {
                 //trigger door animation
                 door = GameObject.FindWithTag("Door");
                 door.GetComponent<Animator>().Play("DoorOpen");
-            }
-            else
-            {
-                //displayManager.DisplayMessage("The door is locked, you need all 7 artifacts to unlock it.");
-                Debug.Log("Door is locked");
             }
         }
         else if (other.tag == "Chest")
@@ -81,6 +85,7 @@ public class CheckCollision : MonoBehaviour
             chest = GameObject.FindWithTag("Chest");
             chest.GetComponentInChildren<Animator>().Play("ChestOpen");
             chest.GetComponent<BoxCollider>().enabled = false;
+            cube.SetActive(true);
             isChestOpen = true;
         }
         else if (other.tag == "Exit") 
@@ -93,5 +98,24 @@ public class CheckCollision : MonoBehaviour
             
             // reserved for κώδικα που έχει σχέση με Level Advancement
         }
+
+    }
+
+    private void OnTriggerStay(Collider other) 
+    {
+        if (other.tag == "Door" && artifactCounter != artifactsInstances)
+        {
+            UIController.ShowUI("Message");
+            
+            FindObjectOfType<MessagesMode>().MessageDisplay(0);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Door")
+        {
+            UIController.ShowUI("Game");
+        }    
     }
 }
