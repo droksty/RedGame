@@ -11,7 +11,12 @@
 
 # Ignored Directories in Assets Folder
 Polytope Studio/*
+!Polytope Studio/Lowpoly Medieval Demos
+Polytope Studio/Lowpoly Medieval Demos/*
+!Polytope Studio/Lowpoly Medieval Demos/Environment_Free
+Polytope Studio/Lowpoly Medieval Demos/Environment_Free/*
 !Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Ground_Layer_01.terrainlayer
+
 !Polytope Studio/Lowpoly Medieval Environments/Sources/Textures/PT_Ground_Generic_03.png
 !Polytope Studio/Lowpoly Medieval Environments/Sources/Textures/PT_Fruit_Tree_Flowers_01.png
 !Polytope Studio/Lowpoly Medieval Environments/Sources/Textures/PT_Generic_Leaves_01.png
