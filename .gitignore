@@ -1,5 +1,4 @@
 # Ignored Files in Assets Folder
-
 /Polytope Studio.meta
 /Samples.meta
 /UniversalRenderPipelineAsset.asset
@@ -10,11 +9,17 @@
 /Unity Store/droksty/Inactive.meta
 /Rejected.meta
 
-
 # Ignored Directories in Assets Folder
-
-Polytope Studio/
-Samples/
+Polytope Studio/*
+!Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Ground_Layer_01.terrainlayer
+!Polytope Studio/Lowpoly Medieval Environments/Sources/Textures/PT_Ground_Generic_03.png
+!Polytope Studio/Lowpoly Medieval Environments/Sources/Textures/PT_Fruit_Tree_Flowers_01.png
+!Polytope Studio/Lowpoly Medieval Environments/Sources/Textures/PT_Generic_Leaves_01.png
+!Polytope Studio/Lowpoly Medieval Environments/Sources/Textures/PT_Grass_02.png
+!Polytope Studio/Lowpoly Medieval Environments/Sources/Textures/PT_Grass_03.png
+Samples/*
+!Samples/Terrain Tools/0.1.0-preview/Terrain Assets/TerrainLayers/snow.terrainlayer
+!Samples/Terrain Tools/0.1.0-preview/Terrain Assets/TerrainTextures/snow_albedo.tif
 TextMesh Pro/
 Unity Store/droksty/Inactive/
 Rejected/
