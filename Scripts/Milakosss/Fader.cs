@@ -20,6 +20,7 @@ public class Fader : MonoBehaviour
                 print("fadeOut");
                 yield return null;
             }
+
         }
         public IEnumerator FadeIn(float time)
         {

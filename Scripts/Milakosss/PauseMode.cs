@@ -10,11 +10,13 @@ public class PauseMode : MonoBehaviour
     public void BoolCheck()
     {
         isPaused = true;
+        Cursor.visible = true;
     }
 
     public void BoolUncheck()
     {
         isPaused = false;
+        Cursor.visible = false;
     }
 
     
