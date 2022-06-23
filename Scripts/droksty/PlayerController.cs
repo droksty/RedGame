@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         cameraPitch = Mathf.Clamp(cameraPitch, -maxPitchAngle, maxPitchAngle);
 
         playerCamera.localEulerAngles = Vector3.right * cameraPitch;
-        transform.Rotate(Vector3.up * mouseDelta.x * mouseSensitivity); // Όταν ο παίκτης στρίβει το ποντίκι αριστερά/δεξιά γυρίζει ολόκληρο το τρανσφερ προς αυτή τη κατεύθυνση
+        transform.Rotate(Vector3.up * mouseDelta.x * mouseSensitivity); // Όταν ο παίκτης στρίβει το ποντίκι αριστερά/δεξιά, περιστρέφει τη κάμερα ΚΑΙ το "σώμα" του Player object
         
     }
 
