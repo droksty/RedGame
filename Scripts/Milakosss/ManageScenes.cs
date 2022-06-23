@@ -10,10 +10,10 @@ public class ManageScenes : MonoBehaviour
     public int currentScene;
     public int nextScene;
     public int lastScene;
-    private int newGame = 1;
+    public int newGame;
     public bool NewGame;
 
-    public float time = 2;
+    public float time = 0.5f;
     
 
 # region Scenes
@@ -57,6 +57,8 @@ public class ManageScenes : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(currentScene);
     }
+
+
 
     // public void LoadScene(int sceneIndex)
     // {

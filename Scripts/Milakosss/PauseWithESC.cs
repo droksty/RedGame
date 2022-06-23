@@ -9,6 +9,7 @@ public class PauseWithESC : MonoBehaviour
     public GameObject btn;
     // public GameObject img;
     public bool escPauseCheck;
+    public bool isPuased;
 
     public  void Start() 
     {
@@ -21,12 +22,12 @@ public class PauseWithESC : MonoBehaviour
     {
         if (escPauseCheck == false && Input.GetKeyDown(KeyCode.Escape))
         {
-            escPauseCheck = true;
-            pause.BoolCheck();
-            btn.SetActive(true);
+                escPauseCheck = true;
+                pause.BoolCheck();
+                btn.SetActive(true);
             // img.SetActive(true);
-            escPauseCheck = false;
-
+                escPauseCheck = false;
+                isPuased = true;
         }
     }
 }
