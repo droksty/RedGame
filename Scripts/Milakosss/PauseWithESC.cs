@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class PauseWithESC : MonoBehaviour
 {
+
+        /*
+        
+                Έλεγχος του παιχνιδιού όταν πατάει το πλήκτρο escape, όπου πειροδωτεί κάποιες bool checks σε άλλα scripts
+        */
+
+
     PauseMode pause;
     public GameObject btn;
     // public GameObject img;

@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class CursorScript : MonoBehaviour
 {
+
+    /*
+    
+        Γραφικλός έλεγχος του κέρσορα με ένα texture 2d. 
+        και mia bool check method όπου διαχειρίζει το visibility του κέρσορα an;aloga me ta πατήματα buttons στο UI.
+    */
+
+
     public Texture2D texture;
     public bool vis;
 

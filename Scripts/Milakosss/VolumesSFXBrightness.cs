@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class VolumesSFXBrightness : MonoBehaviour
 {
+    /*
+    
+        Λίστα με το Soundtracks και μέθοδος για την αθξομείωση του ήχου στον INspector.
+
+    */
+
     AudioSource audioS;
     public GameObject[] ost;
 

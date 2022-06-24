@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+
+    Ορισμός Singletton pattern οπου χρησιμοποιείται για τις ενναλαγεσ του UI. 
+
+*/
+
+
+
 public class Singelton <T> : MonoBehaviour where T: Singelton<T>
 {
    public static T Instance{get; private set;}
