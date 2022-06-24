@@ -14,6 +14,15 @@ public class DotRAycastLevelTwo : MonoBehaviour
         sceneManager = FindObjectOfType<ManageScenes>();
     }
 
+    /*
+    
+        Μια λίστα απο layers τα οποία σε περίπτωση που έρθει σε πεαφή με την ακτίνα του raycast
+        προβάλλεται το UI menu με τα κείμενα και προβάλει το κατάλληλο κείμενο ανάλογα με τo layer poy διαβάζει.
+        
+    
+    */
+
+
     private void FixedUpdate() 
     {
         int layerMaskAnchor = LayerMask.GetMask(LayerNames[0]);

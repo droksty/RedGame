@@ -5,6 +5,17 @@ using TMPro;
 
 public class DisplayManager : MonoBehaviour
 {
+    /*
+    
+        έλεγχος του χρόνου αμα τελειώσει να γίνει το τέλος του παιχνιδιού. 
+        Έλεγχος του χρόνου να σταματάει όταν γίνεται παύση στο παιχνίδι.
+        
+    
+    */
+
+
+
+
     AudioSource audio;
 
     ManageScenes scenes;
@@ -66,12 +77,23 @@ public class DisplayManager : MonoBehaviour
         }      
     }
 
+
+
+        /*
+            Οπτικοποίηση των αριθμών 180 σεκοντς σε προβολή ρολογιού
+        
+        */
     void DisplayTime(float timeToDisplay)
     {
         float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         CadranCounters[2].text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+    /*
+    
+        Enumerator που στην περίπτωση του Game over υπάρχει μια μικρή καθυστέρηση πριν το reload.
+    */
 
     IEnumerator GameOverWait(float time)
     {

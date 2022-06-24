@@ -4,6 +4,10 @@ using UnityEngine;
 using RotaryHeart.Lib.SerializableDictionary;
 using DG.Tweening;
 
+/*
+    κα΄νουμε serialize στην cached μνημη του υπολογιστή την βιβλιοθήκη και για να φαίνεται στον ινσπέκτορ.
+*/
+
 [System.Serializable]
 public class UIPanelDictionary: SerializableDictionaryBase<string, CanvasGroup>{}
 
@@ -17,6 +21,10 @@ public class UIController : Singelton<UIController>
         base.Awake();
         ResetAllUI();    
     }
+
+    /*
+        reset όλων των Ui elements που βρίσκονται στο canvas Group.
+    */
     public void ResetAllUI()
     {
         foreach (CanvasGroup panel in uiPanels.Values)
@@ -24,6 +32,14 @@ public class UIController : Singelton<UIController>
             panel.gameObject.SetActive(false);
         }
     }
+
+    /*
+        singleton pattern apo to singleton για να μην χαθεί κάποιο σε μετάβαση σκηνής.
+
+        Παρακάτω βλέπουμε την _ShowUI(string name). Η μέθοδος αυτή καλείται για να ενεργοποιήσει το κάθε mode
+        στο παιχνίδι μας αλλά και ελέγψει τηην ομαλή μετάβαση απο το ένα στο άλλο χωρίς jitters
+    */
+
     public static void ShowUI(string name)
     {
         Instance?._ShowUI(name);
@@ -42,6 +58,9 @@ public class UIController : Singelton<UIController>
         }
     }
 
+    /*
+        Έλεγχος της μετάβασης των UI
+    */
     public void ChangeUI(CanvasGroup panel)
     {
         if (panel == currentPanel)
@@ -52,6 +71,10 @@ public class UIController : Singelton<UIController>
         if (panel)
             FadeIn(panel);
     }
+
+    /*
+        Fade in - out animation μεσω ενός package για ομαλή μετάβαση των UI
+    */
 
     void FadeIn(CanvasGroup panel)
     {
