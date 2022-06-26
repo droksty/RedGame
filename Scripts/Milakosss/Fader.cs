@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Fader : MonoBehaviour
 {
+
+
+    /*
+    
+        Ο κώδικας αυτός είναι υπεύθυνος για την ομαλή μεταβολή του χρώματος με fadein- fadeout όταν ξεκινάει η εναλλαγή σκηνών.
+        η μεταβολή γίνεται σε χρόνο χρόνο frames / τον ορισμένο χρόνο που δίνουμε απο το κείμενο κώδικα του scene manager
+    
+    */
  CanvasGroup canvasGroup;
 
         private void Start() 
@@ -20,6 +28,7 @@ public class Fader : MonoBehaviour
                 print("fadeOut");
                 yield return null;
             }
+
         }
         public IEnumerator FadeIn(float time)
         {

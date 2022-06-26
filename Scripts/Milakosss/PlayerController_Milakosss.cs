@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class PlayerController_Milakosss : MonoBehaviour
 {
+        /*
+        
+            o κώδικας βασίστηκε ακριβώς σε κώδικα συμφοιτητή μου και προστέθηκαν τα pauseMode kai DisplayManager objetcs
+            για διαχείρηση αυτών απο τον player.
+            οι αναφορές τους γίνονται cached στην Awake function.
+            h Update ελέγχει αν το παιχνίδι δεν είναι σε παύση. και δεν είναι Game over τότε μπορείς να κουνήσεις το ποντίκι.
+            αντίστοιχα έτσι γίνεται και στην FixedUpdate για την κίνηση του παίχτη.
+        */
+
+
+
     public Transform playerCamera;
     PauseMode pause;
     DisplayManager displayManager;

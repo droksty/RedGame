@@ -5,11 +5,20 @@ using UnityEngine;
 public class CursorScript : MonoBehaviour
 {
 
+    /*
+    
+        Γραφικλός έλεγχος του κέρσορα με ένα texture 2d. 
+        και mia bool check method όπου διαχειρίζει το visibility του κέρσορα an;aloga me ta πατήματα buttons στο UI.
+    */
 
+
+    public Texture2D texture;
+    public bool vis;
 
     private void Start() 
     {
-        Cursor.visible = false;
+        Cursor.visible = vis;
+        Cursor.SetCursor(texture, Vector2.zero, CursorMode.ForceSoftware);
     }
     public void CursorVisibility(bool cursor)
     {
@@ -18,9 +27,6 @@ public class CursorScript : MonoBehaviour
 
     private void Update() 
     {
-        Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = cursorPos;
-        cursorPos = transform.forward;
-          
+        
     }
 }
